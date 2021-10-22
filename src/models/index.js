@@ -6,7 +6,6 @@ require('dotenv').config();
 const DATABASE_URL = process.env.DATABASE_URL || 'sqlite:memory';
 const { Sequelize, DataTypes } = require('sequelize');
 const bookModel = require('./books.js');
-
 const movieModel = require('./movies.js')
 
 const options = process.env.NODE_ENV === 'production'
