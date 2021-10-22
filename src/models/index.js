@@ -24,8 +24,12 @@ let sequelizeInstance = new Sequelize('sqlite:memory');
 const bookTable = bookModel(sequelizeInstance, DataTypes);
 const movieTable = movieModel(sequelizeInstance, DataTypes);
 
-// const bookCollection = new Collection(bookTable);
-// const movieCollection = new Collection(movieTable)
+//https://sequelize.org/master/manual/assocs.html
+//https://sequelize.org/master/class/lib/associations/has-many.js~HasMany.html
+//https://sequelize.org/master/class/lib/associations/belongs-to.js~BelongsTo.html
+
+// bookTable.hasMany(movieTable, { foreignKey: 'channelId', sourceKey: 'id'});
+// movieTable.belongsTo(bookTable, {foreignKey: 'channelId', targetKey: 'id'});
 
 module.exports = {
   db: sequelizeInstance,
