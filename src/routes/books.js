@@ -28,9 +28,13 @@ async function getBooks(request, response) {
 // }
 
 async function getOneBook(request, response) {
-  const id = request.params.id;
-  const foundBook = await book.findByPk(id);
-  response.status(200).send(foundBook);
+  try{
+    const id = request.params.id;
+    const foundBook = await book.findOne({});
+    response.status(200).send(foundBook);
+  } catch (error){
+    next(error);
+  }
 }
 
 async function createBook(request, response, next) {
@@ -38,7 +42,7 @@ async function createBook(request, response, next) {
     title: request.body.title,
     author: request.body.author
   });
-  response.status(200).send(newBook)
+  response.status(200).send(newBook);
 }
 
 // async function updateBook(request, response) {
@@ -55,10 +59,11 @@ async function createBook(request, response, next) {
 
 async function updateBook(request, response) {
   const id = request.params.id;
-  const updatedBook = await book.update({
+  const bookToUpdate = await book.findByPk(id);
+  const updatedBook = await bookToUpdate.update({
     title: request.body.title,
     author: request.body.author,
-  },{ where: {id, }});
+  });
   response.status(200).send(updatedBook)
 }
 
@@ -74,7 +79,7 @@ async function updateBook(request, response) {
 
 async function deleteBook(request, response) {
   const id = request.params.id;
-  const bookDeleted = await book.destroy({where: {id,}});
+  const bookDeleted = await book.destroy(id);
   response.status(200).send(bookDeleted);
 }
 
