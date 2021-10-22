@@ -20,7 +20,7 @@ const options = process.env.NODE_ENV === 'production'
   : {};
 
 
-let sequelizeInstance = new Sequelize('sqlite:memory');
+let sequelizeInstance = new Sequelize(DATABASE_URL);
 const bookTable = bookModel(sequelizeInstance, DataTypes);
 const movieTable = movieModel(sequelizeInstance, DataTypes);
 
