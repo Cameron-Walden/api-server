@@ -19,4 +19,23 @@ Building a REST API using Express, by creating a proper series of endpoints that
 ## Routes
 
 - **/books**
+  
+  -**post**
+
+  -**get**
+
+  -**put**
+
+  -**delete**
+
 - **/movies**
+   
+  -**post**
+
+  -**get**
+
+  -**put**
+  
+  -**delete**
+
+
