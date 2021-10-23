@@ -16,7 +16,7 @@ async read(id, options = {}) {
     } else {
       records = await this.model.findAll(options);
     }
-    return recordsl
+    return records;
   } catch (error) {
     return error;
   }
