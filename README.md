@@ -7,7 +7,7 @@
 ***
 
 ## Links
-[hereoku](https://cameron-api-server.herokuapp.com/)
+[heroku](https://cameron-api-server.herokuapp.com/)
 ***
 
 ## Routes
