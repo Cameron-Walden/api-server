@@ -30,7 +30,7 @@ async function getBooks(request, response) {
 async function getOneBook(request, response) {
   try{
     const id = request.params.id;
-    const foundBook = await book.findOne({});
+    const foundBook = await book.findOne(id);
     response.status(200).send(foundBook);
   } catch (error){
     next(error);
