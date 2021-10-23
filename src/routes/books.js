@@ -57,9 +57,19 @@ async function createBook(request, response, next) {
 //   response.status(200).send(updatedBook)
 // }
 
+// async function updateBook(request, response) {
+//   const id = request.params.id;
+//   const bookToUpdate = await book.findByPk(id);
+//   const updatedBook = await bookToUpdate.update({
+//     title: request.body.title,
+//     author: request.body.author,
+//   });
+//   response.status(200).send(updatedBook)
+// }
+
 async function updateBook(request, response) {
   const id = request.params.id;
-  const bookToUpdate = await book.findByPk(id);
+  const bookToUpdate = await book.findOne(id);
   const updatedBook = await bookToUpdate.update({
     title: request.body.title,
     author: request.body.author,
