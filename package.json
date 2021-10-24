@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --coverage"
+    "test": "NODE_ENV=test jest --verbose --coverage"
   },
   "repository": {
     "type": "git",
