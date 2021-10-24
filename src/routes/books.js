@@ -69,7 +69,7 @@ async function createBook(request, response, next) {
 
 async function updateBook(request, response) {
   const id = request.params.id;
-  const bookToUpdate = await book.findOne(id);
+  const bookToUpdate = await book.findByPk(id);
   const updatedBook = await bookToUpdate.update({
     title: request.body.title,
     author: request.body.author,
