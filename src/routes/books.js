@@ -30,7 +30,7 @@ async function getBooks(request, response) {
 async function getOneBook(request, response) {
   try{
     const id = request.params.id;
-    const foundBook = await book.findOne({});
+    const foundBook = await book.findOne(id);
     response.status(200).send(foundBook);
   } catch (error){
     next(error);
@@ -54,6 +54,16 @@ async function createBook(request, response, next) {
 //     }
 //   });
 //   const updatedBook = await bookData.update(bookObject);
+//   response.status(200).send(updatedBook)
+// }
+
+// async function updateBook(request, response) {
+//   const id = request.params.id;
+//   const bookToUpdate = await book.findByPk(id);
+//   const updatedBook = await bookToUpdate.update({
+//     title: request.body.title,
+//     author: request.body.author,
+//   });
 //   response.status(200).send(updatedBook)
 // }
 

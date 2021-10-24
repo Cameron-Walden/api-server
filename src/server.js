@@ -9,6 +9,7 @@ const notFoundErrorHandler = require('./error-handlers/404.js');
 const unexpectedErrorHandler = require('./error-handlers/500.js');
 const bookRoute = require('./routes/books.js');
 const movieRoute = require('./routes/movies.js');
+const apiRoute = require('./routes/api.js');
 
 const logger = require('./middleware/logger.js')
 
@@ -18,6 +19,7 @@ app.get('/', (request, response) => {
 
 app.use('/books', bookRoute);
 app.use('/movies', movieRoute);
+app.use('/api', apiRoute)
 
 app.use('*', notFoundErrorHandler);
 app.use(unexpectedErrorHandler);
